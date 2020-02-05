@@ -14,7 +14,7 @@ public class ShrinkSplash : MonoBehaviour
     private IEnumerator Shrink()
     {
         anim.Play("SplashFadeIn");
-        yield return new WaitForSeconds(3.3f);
+        yield return new WaitForSeconds(6f);
         anim.Play("SplashFadeOut");
     }
 }
