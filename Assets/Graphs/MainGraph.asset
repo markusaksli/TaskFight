@@ -79,14 +79,14 @@ MonoBehaviour:
   m_id: ad230217-0219-463c-814e-7d59a2173eea
   m_name: Game
   m_notes: 
-  m_onEnterShowViews: []
-  m_onEnterHideViews:
-  - Category: General
-    InstantAction: 0
-    Name: Inn
+  m_onEnterShowViews:
   - Category: General
     InstantAction: 0
     Name: Status
+  m_onEnterHideViews:
+  - Category: General
+    InstantAction: 0
+    Name: Splash
   m_onExitShowViews: []
   m_onExitHideViews: []
 --- !u!114 &-7386297373685385332
