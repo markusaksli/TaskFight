@@ -268,7 +268,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 128, y: -279}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 115.8, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &5538866477683122227
 MonoBehaviour:
@@ -285,8 +285,8 @@ MonoBehaviour:
   DebugMode: 0
   ProgressTargets:
   - {fileID: 5538866479085813976}
-  AnimateValue: 0
-  AnimationDuration: 0.5
+  AnimateValue: 1
+  AnimationDuration: 1
   AnimationEase: 1
   AnimationIgnoresUnityTimescale: 1
   OnEnableResetValue: 1
@@ -318,6 +318,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2001986190913097176}
+  barDuration: 10
+  timeLeft: 7
 --- !u!1 &5538866479085813978
 GameObject:
   m_ObjectHideFlags: 0

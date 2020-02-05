@@ -7,30 +7,38 @@ public class ProgressBar : MonoBehaviour
 {
     public TMP_Text text;
     Doozy.Engine.Progress.Progressor progressor;
-    float startTime;
+    float endTime;
+
+    public float barDuration = 135;
+    public float timeLeft = 75;
     
     // Start is called before the first frame update
     void Start()
     {
         this.progressor = this.GetComponent<Doozy.Engine.Progress.Progressor>();
-        this.startTime = Time.time;
+
+        this.endTime = Time.time + timeLeft;
+        
+        this.progressor.SetMax(barDuration);
+        this.progressor.SetValue(timeLeft);
     }
 
     // Update is called once per frame
     void Update()
     {
-        float fromStart = Time.time - this.startTime;
+        float secondsLeft = (int) (this.endTime - Time.time);
 
+        if (secondsLeft <= 0) {
+            this.text.SetText("Time's up!");
+            this.progressor.SetValue(0f);
+            return;
+        }
         
-        this.text.SetText("00:" + (30 - (int)fromStart).ToString());
-
-
-
-
-        fromStart *= 0.02f;
-        //0.02 yhikut sekundis
-        //0.6 yhikut kokku
-        //30 sekundit timer
-        this.progressor.SetProgress(0.6f - fromStart);
+        this.progressor.SetValue(secondsLeft);
+        
+        if (secondsLeft < 60)
+            this.text.SetText(secondsLeft + "");
+        else
+            this.text.SetText(string.Format("{0}:{1:00}", (int) ((int) secondsLeft / 60), (secondsLeft % 60)));
     }
 }
