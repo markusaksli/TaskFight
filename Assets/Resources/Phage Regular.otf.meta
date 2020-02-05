@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 979b302a1b3c5b5468a53faf08d66669
+guid: e919066733d5c764b821197fd32fa435
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Quicksand
+  fontName: Phage Regular
   fontNames:
-  - Quicksand
+  - Phage Regular
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
