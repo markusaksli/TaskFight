@@ -285,7 +285,7 @@ MonoBehaviour:
   DebugMode: 0
   ProgressTargets:
   - {fileID: 5538866479085813976}
-  AnimateValue: 1
+  AnimateValue: 0
   AnimationDuration: 0.5
   AnimationEase: 1
   AnimationIgnoresUnityTimescale: 1
@@ -304,7 +304,7 @@ MonoBehaviour:
   m_minValue: 0
   m_maxValue: 1
   m_wholeNumbers: 0
-  m_currentValue: 0.605
+  m_currentValue: 0.634
 --- !u!114 &5538866477683122226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -387,7 +387,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.605
+  m_FillAmount: 0.634
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0

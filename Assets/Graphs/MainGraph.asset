@@ -82,7 +82,7 @@ MonoBehaviour:
   m_onEnterShowViews:
   - Category: General
     InstantAction: 0
-    Name: Status
+    Name: Battle
   m_onEnterHideViews:
   - Category: General
     InstantAction: 0
@@ -175,10 +175,7 @@ MonoBehaviour:
   m_id: 2b8934a8-2eac-4227-b647-b65f2656f0af
   m_name: Splash
   m_notes: 
-  m_onEnterShowViews:
-  - Category: General
-    InstantAction: 0
-    Name: Splash
+  m_onEnterShowViews: []
   m_onEnterHideViews: []
   m_onExitShowViews: []
   m_onExitHideViews:
