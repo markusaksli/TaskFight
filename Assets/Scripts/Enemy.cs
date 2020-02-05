@@ -8,11 +8,15 @@ public class Enemy : MonoBehaviour
     Progressor healthBar;
     Collider2D col;
     EnemyManager EM;
+    Animator anim;
     public int hp = 3;
+
+    public ParticleSystem[] particles;
 
     void Start()
     {
         healthBar = GetComponent<Progressor>();
+        anim = GetComponent<Animator>();
         EM = GetComponentInParent<EnemyManager>();
         col = GetComponent<Collider2D>();
     }
@@ -31,9 +35,13 @@ public class Enemy : MonoBehaviour
                     hp -= 1;
                     StartCoroutine(ValueWait());
                     healthBar.SetValue(hp);
+                    anim.Play("Hurt");
+                    particles[0].Play();
                     if (hp == 0)
                     {
                         EM.MoveEnemies();
+                        anim.Play("Death");
+                        particles[1].Play();
                     }
                 }
             }
@@ -41,16 +49,20 @@ public class Enemy : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.F) && !EM.killed)
         {
             hp -= 1;
+            StartCoroutine(ValueWait());
             healthBar.SetValue(hp);
+            anim.Play("Hurt");
             if (hp == 0)
             {
                 EM.MoveEnemies();
+                anim.Play("Death");
             }
         }
     }
 
     public void ResetEnemy()
     {
+        anim.Play("Walk");
         hp = 3;
         healthBar.InstantSetProgress(0);
         healthBar.SetValue(3);
