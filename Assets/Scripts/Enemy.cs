@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     EnemyManager EM;
     Animator anim;
     public int hp = 3;
+    public Animator playerAnim;
+
 
     public ParticleSystem particle;
     public ParticleSystem deathParticle;
@@ -33,42 +35,37 @@ public class Enemy : MonoBehaviour
                 Collider2D touchCollider = Physics2D.OverlapPoint(touchPos);
                 if (touchCollider.Equals(col))
                 {
-                    hp -= 1;
-                    StartCoroutine(ValueWait());
-                    healthBar.SetValue(hp);
-                    anim.Play("Hurt");
-                    particle.Play();
-                    if (hp == 0)
-                    {
-                        deathParticle.Play();
-                        anim.Play("Death");
-                        EM.MoveEnemies();
-                    }
+                    TapAction();
                 }
             }
         }
         if (Input.GetKeyDown(KeyCode.F) && !EM.killed)
         {
-            hp -= 1;
-            StartCoroutine(ValueWait());
-            healthBar.SetValue(hp);
-            anim.Play("Hurt");
-            particle.Play();
-            if (hp == 0)
-            {
-                deathParticle.Play();
-                anim.Play("Death");
-                EM.MoveEnemies();
-            }
+            TapAction();
         }
     }
 
     public void ResetEnemy()
     {
         anim.Play("Walk");
-        hp = 3;
-        healthBar.InstantSetProgress(0);
         healthBar.SetValue(3);
+        hp = 3;
+    }
+
+    void TapAction()
+    {
+        playerAnim.Play("PlayerSlash");
+        hp -= 1;
+        StartCoroutine(ValueWait());
+        healthBar.SetValue(hp);
+        anim.Play("Hurt");
+        particle.Play();
+        if (hp == 0)
+        {
+            deathParticle.Play();
+            anim.Play("Death");
+            EM.MoveEnemies();
+        }
     }
 
     IEnumerator ValueWait()
