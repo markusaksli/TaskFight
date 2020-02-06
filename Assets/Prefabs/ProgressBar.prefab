@@ -393,8 +393,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   text: {fileID: 2001986190913097176}
-  barDuration: 10
-  timeLeft: 7
+  barDuration: 2700
+  timeLeft: 2000
 --- !u!1 &5538866479085813978
 GameObject:
   m_ObjectHideFlags: 0

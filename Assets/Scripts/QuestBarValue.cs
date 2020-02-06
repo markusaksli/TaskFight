@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class QuestBarValue : MonoBehaviour
 {
+    public float value = 0.43f;
     public Progressor prog;
     void Start()
     {
@@ -12,6 +13,6 @@ public class QuestBarValue : MonoBehaviour
     void OnEnable()
     {
         prog.InstantSetProgress(0f);
-        prog.SetValue(0.43f);
+        prog.SetValue(value);
     }
 }

@@ -1,7 +1,5 @@
-﻿using Assets.SimpleAndroidNotifications;
-using DG.Tweening;
+﻿using DG.Tweening;
 using Doozy.Engine.UI;
-using System;
 using System.Collections;
 using TMPro;
 using UnityEngine;
@@ -54,7 +52,7 @@ public class EnemyManager : MonoBehaviour
 
     public void MoveEnemies()
     {
-        NotificationManager.Send(TimeSpan.FromSeconds(5), "Your friend just completed a task!", "Markus Aksli just completed " + names[currentName] + "!", Color.white);
+        //NotificationManager.Send(TimeSpan.FromSeconds(5), "Your friend just completed a task!", "Markus Aksli just completed " + names[currentName] + "!", Color.white);
         StartCoroutine(MoveRoutine());
     }
 
