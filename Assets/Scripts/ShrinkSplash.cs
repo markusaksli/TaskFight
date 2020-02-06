@@ -19,7 +19,7 @@ public class ShrinkSplash : MonoBehaviour
     {
         anim.Play("SplashFadeIn");
         yield return new WaitUntil(() => video.isPrepared);
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(2f);
         anim.Play("SplashFadeOut");
         yield return new WaitForSeconds(1f);
         GameEventMessage.SendEvent("SplashEnded");
