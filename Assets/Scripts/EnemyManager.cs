@@ -23,6 +23,7 @@ public class EnemyManager : MonoBehaviour
     public TMP_Text taskNameLabel;
     public TMP_Text taskCustomLabel;
     public TMP_Text taskTimeLabel;
+    public TMP_Text taskButtonLabel;
 
 
     public int currentName = 0;
@@ -38,7 +39,7 @@ public class EnemyManager : MonoBehaviour
         DOTween.SetTweensCapacity(500, 50);
         transform.position = endPos.position;
         enemy = GetComponentInChildren<Enemy>();
-        DisableInput();
+        //DisableInput();
     }
 
     public void UpdateNames()
@@ -47,6 +48,7 @@ public class EnemyManager : MonoBehaviour
         taskNameLabel.text = names[currentName];
         popupLabel.text = names[currentName];
         taskCustomLabel.text = names[currentName];
+        taskButtonLabel.text = "1. " + names[currentName];
         enemyLabel.text = names[currentName];
     }
 
@@ -95,7 +97,9 @@ public class EnemyManager : MonoBehaviour
         dummyLabel.text = names[currentName + 1];
         transform.position = startPos.position;
         transform.DOMove(endPos.position, 1f).SetEase(Ease.InOutCubic);
+        enemy.healthBar.AnimationDuration = 1f;
         yield return new WaitForSeconds(1f);
+        enemy.healthBar.AnimationDuration = 0.5f;
         killed = false;
         if (currentName == 2)
         {

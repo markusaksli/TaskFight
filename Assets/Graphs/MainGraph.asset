@@ -79,10 +79,7 @@ MonoBehaviour:
   m_id: ad230217-0219-463c-814e-7d59a2173eea
   m_name: Game
   m_notes: 
-  m_onEnterShowViews:
-  - Category: General
-    InstantAction: 0
-    Name: Battle
+  m_onEnterShowViews: []
   m_onEnterHideViews:
   - Category: General
     InstantAction: 0

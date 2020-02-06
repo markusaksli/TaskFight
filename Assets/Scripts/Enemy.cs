@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    Progressor healthBar;
+    public Progressor healthBar;
     Collider2D col;
     EnemyManager EM;
     Animator anim;
@@ -56,7 +56,6 @@ public class Enemy : MonoBehaviour
     {
         playerAnim.Play("PlayerSlash");
         hp -= 1;
-        StartCoroutine(ValueWait());
         healthBar.SetValue(hp);
         anim.Play("Hurt");
         particle.Play();
@@ -65,7 +64,9 @@ public class Enemy : MonoBehaviour
             deathParticle.Play();
             anim.Play("Death");
             EM.MoveEnemies();
+            return;
         }
+        StartCoroutine(ValueWait());
     }
 
     IEnumerator ValueWait()
