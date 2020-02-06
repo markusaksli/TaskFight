@@ -11,7 +11,7 @@ public class Enemy : MonoBehaviour
     Animator anim;
     public int hp = 3;
 
-    public ParticleSystem[] particles;
+    public ParticleSystem particle;
 
     void Start()
     {
@@ -36,12 +36,12 @@ public class Enemy : MonoBehaviour
                     StartCoroutine(ValueWait());
                     healthBar.SetValue(hp);
                     anim.Play("Hurt");
-                    particles[0].Play();
+                    particle.Play();
                     if (hp == 0)
                     {
                         EM.MoveEnemies();
                         anim.Play("Death");
-                        particles[1].Play();
+                        particle.Play();
                     }
                 }
             }
@@ -52,10 +52,12 @@ public class Enemy : MonoBehaviour
             StartCoroutine(ValueWait());
             healthBar.SetValue(hp);
             anim.Play("Hurt");
+            particle.Play();
             if (hp == 0)
             {
                 EM.MoveEnemies();
                 anim.Play("Death");
+                particle.Play();
             }
         }
     }
