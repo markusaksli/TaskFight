@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Doozy.Engine.UI;
 using System.Collections;
 using UnityEngine;
 
@@ -7,8 +8,8 @@ public class EnemyManager : MonoBehaviour
     Enemy enemy;
     public Transform startPos;
     public Transform endPos;
+    public UIPopup winPopup;
     public bool killed = false;
-    bool moving = false;
 
     void Start()
     {
@@ -26,12 +27,13 @@ public class EnemyManager : MonoBehaviour
     {
         killed = true;
         yield return new WaitForSeconds(1f);
+        winPopup.Show();
+        yield return new WaitForSeconds(1f);
+        yield return new WaitUntil(() => winPopup.IsHidden);
         enemy.ResetEnemy();
         transform.position = startPos.position;
-        moving = true;
         transform.DOMove(endPos.position, 1f).SetEase(Ease.InOutCubic);
         yield return new WaitForSeconds(1f);
-        moving = false;
         killed = false;
     }
 }
