@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public int hp = 3;
 
     public ParticleSystem particle;
+    public ParticleSystem deathParticle;
 
     void Start()
     {
@@ -39,9 +40,9 @@ public class Enemy : MonoBehaviour
                     particle.Play();
                     if (hp == 0)
                     {
-                        EM.MoveEnemies();
+                        deathParticle.Play();
                         anim.Play("Death");
-                        particle.Play();
+                        EM.MoveEnemies();
                     }
                 }
             }
@@ -55,9 +56,9 @@ public class Enemy : MonoBehaviour
             particle.Play();
             if (hp == 0)
             {
-                EM.MoveEnemies();
+                deathParticle.Play();
                 anim.Play("Death");
-                particle.Play();
+                EM.MoveEnemies();
             }
         }
     }
