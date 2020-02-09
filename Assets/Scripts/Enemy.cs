@@ -8,7 +8,7 @@ public class Enemy : MonoBehaviour
     public Progressor healthBar;
     Collider2D col;
     EnemyManager EM;
-    Animator anim;
+    public Animator anim;
     public int hp = 3;
     public Animator playerAnim;
 

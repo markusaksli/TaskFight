@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour
     public UIPopup winPopup;
     public UIPopup taskPopup;
 
+    public Animator dummyAnim;
     public bool killed = false;
     public UIDrawer notificationDrawer;
 
@@ -35,7 +36,7 @@ public class EnemyManager : MonoBehaviour
         enemyLabel.text = names[currentName];
         dummyLabel.text = names[currentName + 1];
         DOTween.SetTweensCapacity(500, 50);
-        transform.position = endPos.position;
+        transform.position = startPos.position;
         enemy = GetComponentInChildren<Enemy>();
         //DisableInput();
     }
@@ -70,6 +71,13 @@ public class EnemyManager : MonoBehaviour
         killed = false;
     }
 
+    public void FirstMove()
+    {
+        transform.DOMove(endPos.position, 1f).SetEase(Ease.InOutCubic);
+        enemy.anim.Play("Walk");
+        dummyAnim.Play("Walk");
+    }
+
     IEnumerator MoveRoutine()
     {
         killed = true;
@@ -95,6 +103,7 @@ public class EnemyManager : MonoBehaviour
         dummyLabel.text = names[currentName + 1];
         transform.position = startPos.position;
         transform.DOMove(endPos.position, 1f).SetEase(Ease.InOutCubic);
+        dummyAnim.Play("Walk");
         enemy.healthBar.AnimationDuration = 1f;
         yield return new WaitForSeconds(1f);
         enemy.healthBar.AnimationDuration = 0.5f;
